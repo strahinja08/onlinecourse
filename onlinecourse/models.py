@@ -122,7 +122,7 @@ class Question(models.Model):
     # Choice content
     # Indicate if this choice of the question is a correct one or not
     # Other fields and methods you would like to design
-class Choice(models.Model):
+# class Choice(models.Model):
 
 # <HINT> The submission model
 # One enrollment could have multiple submission
@@ -130,5 +130,5 @@ class Choice(models.Model):
 # One choice could belong to multiple submissions
 class Submission(models.Model):
    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
-   chocies = models.ManyToManyField(Choice)
+#    chocies = models.ManyToManyField(Choice)
 #    Other fields and methods you would like to design
