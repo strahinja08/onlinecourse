@@ -119,8 +119,7 @@ def submit(request, course_id):
 
             # Collect the selected choices from exam form
             submitted_anwsers = [
-                int(value),
-                [(key,value) for key,value in request.POST.items() if key.startswith('choice')]
+                int(value) for key,value in request.POST.items() if key.startswith('choice')
             ]
             # Add each selected choice object to the submission object
             submission.choices.add(*submitted_anwsers)
@@ -153,7 +152,7 @@ def extract_answers(request):
 def show_exam_result(request, course_id, submission_id):
     # Get course and submission based on their ids
     course = get_object_or_404(Course, pk=course_id)
-    Submission= get_object_or_404(Submission, pk=submission_id)
+    submission= get_object_or_404(Submission, pk=submission_id)
     # Get the selected choice ids from the submission record
     choices = submission.choices.all()
 
