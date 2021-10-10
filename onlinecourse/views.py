@@ -108,7 +108,7 @@ def submit(request, course_id):
     user = request.user
     course = get_object_or_404(Course, pk=course_id)
 
-    is_enrolled = utils.check_if_enrolled(user, course)
+    is_enrolled = check_if_enrolled(user, course)
 
     if user.is_authenticated:
         if is_enrolled:
